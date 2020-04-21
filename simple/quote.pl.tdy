@@ -1,0 +1,38 @@
+#!/usr/bin/perl
+
+use strict;
+
+use Data::Dumper;
+use Finance::YahooQuote;
+
+my @names = (
+    "Symbol",
+    "Company Name",
+    "Last Price",
+    "Last Trade Date",
+    "Last Trade Time",
+    "Change",
+    "Percent Change",
+    "Volume",
+    "Average Daily Vol",
+    "Bid",
+    "Ask",
+    "Previous Close",
+    "Today's Open",
+    "Day's Range",
+    "52-Week Range",
+    "Earnings per Share",
+    "P/E Ratio",
+    "Dividend Pay Date",
+    "Dividend per Share",
+    "Dividend Yield",
+    "Market Capitalization",
+    "Stock Exchange",
+);
+
+my $int = 0;
+
+for my $fields ( getonequote 'ZNGA' ) {
+    print $names[$int] . ":  " . $fields . "\n";
+    $int++;
+}
